@@ -307,11 +307,10 @@ export default function Home() {
         </div>
 
         <div className="hero-media">
-          <img
-            src="/media/jaja-no-buggy.webp"
-            alt="Jajá sentado sobre o buggy vermelho diante do mar de Maragogi"
-            fetchPriority="high"
-          />
+  <img
+    src="/media/foto-principal-hero.webp"
+    alt="Buggy vermelho em Maragogi"
+  />
           <div className="hero-media-shade" />
           <p className="hero-location">08°59&apos;S • 35°13&apos;W</p>
           <div className="hero-seal">
