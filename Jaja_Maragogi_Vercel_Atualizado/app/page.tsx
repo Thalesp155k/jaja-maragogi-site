@@ -308,7 +308,7 @@ export default function Home() {
 
         <div className="hero-media">
   <img
-    src="/media/foto-principal-hero.jpg"
+    src="/media/foto-principal-hero.png"
     alt="Buggy vermelho em Maragogi"
   />
           <div className="hero-media-shade" />
