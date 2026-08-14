@@ -131,22 +131,28 @@ const southImages: GalleryImage[] = [
 
 const piscinasImages: GalleryImage[] = [
   {
-    src: "/media/piscinas-naturais/piscinas-01.png",
+    src: "/media/piscinas-naturais/piscinas-01.jpg",
     alt: "Passeio das Piscinas Naturais em Maragogi",
     route: "Piscinas Naturais",
     size: "feature",
   },
   {
-    src: "/media/piscinas-naturais/piscinas-02.png",
+    src: "/media/piscinas-naturais/piscinas-02.jpg",
     alt: "Águas cristalinas nas piscinas naturais de Maragogi",
     route: "Piscinas Naturais",
     size: "half",
   },
   {
-    src: "/media/piscinas-naturais/piscinas-03.png",
+    src: "/media/piscinas-naturais/piscinas-03.jpg",
     alt: "Visitantes aproveitando o passeio das piscinas naturais",
     route: "Piscinas Naturais",
     size: "half",
+  },
+  {
+    src: "/media/piscinas-naturais/piscinas-04.jpg",
+    alt: "Cenário do passeio das piscinas naturais de Maragogi",
+    route: "Piscinas Naturais",
+    size: "wide",
   },
 ];
 
@@ -398,11 +404,11 @@ export default function Home() {
           </a>
           <a className="route-choice" href="#piscinas-naturais">
             <img
-              src="/media/piscinas-naturais/piscinas-01.png"
+              src="/media/piscinas-naturais/piscinas-01.jpg"
               alt="Passeio das Piscinas Naturais em Maragogi"
             />
             <span className="route-shade" />
-            <span className="route-count">3 fotos</span>
+            <span className="route-count">4 fotos</span>
             <div>
               <small>Rota 04</small>
               <h3>Piscinas Naturais</h3>
