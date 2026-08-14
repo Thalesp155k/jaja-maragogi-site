@@ -11,7 +11,7 @@ const whatsapp = (
 type GalleryImage = {
   src: string;
   alt: string;
-  route: "Litoral Norte" | "Litoral Sul";
+  route: "Litoral Norte" | "Litoral Sul" | "Piscinas Naturais";
   size: "feature" | "half" | "third" | "wide" | "small";
 };
 
@@ -129,7 +129,28 @@ const southImages: GalleryImage[] = [
   },
 ];
 
-const allImages = [...northImages, ...southImages];
+const piscinasImages: GalleryImage[] = [
+  {
+    src: "/media/piscinas-naturais/piscinas-01.png",
+    alt: "Passeio das Piscinas Naturais em Maragogi",
+    route: "Piscinas Naturais",
+    size: "feature",
+  },
+  {
+    src: "/media/piscinas-naturais/piscinas-02.png",
+    alt: "Águas cristalinas nas piscinas naturais de Maragogi",
+    route: "Piscinas Naturais",
+    size: "half",
+  },
+  {
+    src: "/media/piscinas-naturais/piscinas-03.png",
+    alt: "Visitantes aproveitando o passeio das piscinas naturais",
+    route: "Piscinas Naturais",
+    size: "half",
+  },
+];
+
+const allImages = [...northImages, ...southImages, ...piscinasImages];
 
 function GallerySection({
   id,
@@ -240,6 +261,7 @@ export default function Home() {
           <a href="#norte">Litoral Norte</a>
           <a href="#sul">Litoral Sul</a>
           <a href="#ponta-a-ponta">Ponta a Ponta</a>
+          <a href="#piscinas-naturais">Piscinas Naturais</a>
           <a href="#sobre">A Jajá</a>
         </nav>
 
@@ -271,6 +293,7 @@ export default function Home() {
           <a href="#norte" onClick={closeMenu}>Litoral Norte</a>
           <a href="#sul" onClick={closeMenu}>Litoral Sul</a>
           <a href="#ponta-a-ponta" onClick={closeMenu}>Ponta a Ponta</a>
+          <a href="#piscinas-naturais" onClick={closeMenu}>Piscinas Naturais</a>
           <a href="#sobre" onClick={closeMenu}>A Jajá</a>
           <a href={whatsapp()} target="_blank" rel="noreferrer">Reservar pelo WhatsApp ↗</a>
         </nav>
@@ -324,6 +347,7 @@ export default function Home() {
         <p><strong>01</strong> Litoral Norte</p>
         <p><strong>02</strong> Litoral Sul</p>
         <p><strong>03</strong> Ponta a Ponta</p>
+        <p><strong>04</strong> Piscinas Naturais</p>
       </section>
 
       <section className="route-selector" id="rotas">
@@ -370,6 +394,19 @@ export default function Home() {
               <small>Rota 03</small>
               <h3>Ponta a Ponta</h3>
               <p>Assistir ao passeio <span>↘</span></p>
+            </div>
+          </a>
+          <a className="route-choice" href="#piscinas-naturais">
+            <img
+              src="/media/piscinas-naturais/piscinas-01.png"
+              alt="Passeio das Piscinas Naturais em Maragogi"
+            />
+            <span className="route-shade" />
+            <span className="route-count">3 fotos</span>
+            <div>
+              <small>Rota 04</small>
+              <h3>Piscinas Naturais</h3>
+              <p>Conhecer o passeio <span>↘</span></p>
             </div>
           </a>
         </div>
@@ -449,6 +486,16 @@ export default function Home() {
         </div>
       </section>
 
+      <GallerySection
+        id="piscinas-naturais"
+        index="04"
+        title="Passeio das Piscinas Naturais"
+        description="Águas cristalinas, banho de mar e fotos em um dos cenários mais procurados de Maragogi."
+        images={piscinasImages}
+        onOpen={openImage}
+        tone="light"
+      />
+
       <section className="about" id="sobre">
         <div className="about-media">
           <img
@@ -519,6 +566,7 @@ export default function Home() {
           <a href="#norte">Litoral Norte</a>
           <a href="#sul">Litoral Sul</a>
           <a href="#ponta-a-ponta">Ponta a Ponta</a>
+          <a href="#piscinas-naturais">Piscinas Naturais</a>
           <a href={whatsapp()} target="_blank" rel="noreferrer">WhatsApp</a>
           <a href="https://instagram.com/jjmaragogibuggy" target="_blank" rel="noreferrer">Instagram</a>
         </nav>
