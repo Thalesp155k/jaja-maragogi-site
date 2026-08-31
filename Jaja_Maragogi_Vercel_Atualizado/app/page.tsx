@@ -158,11 +158,137 @@ const piscinasImages: GalleryImage[] = [
 
 const allImages = [...northImages, ...southImages, ...piscinasImages];
 
+type TourDetails = {
+  intro: string;
+  subtitle: string;
+  duration: string;
+  capacity: string;
+  benefits: string[];
+  stops: string[];
+  note?: string;
+};
+
+const northDetails: TourDetails = {
+  intro:
+    "Descubra o melhor do Litoral Norte de Maragogi em um passeio cheio de praias paradisíacas e paradas inesquecíveis.",
+  subtitle:
+    "Um roteiro pensado para curtir o mar, aproveitar cada cenário e voltar com fotos incríveis.",
+  duration: "2H30",
+  capacity: "ATÉ 4 PESSOAS POR BUGGY",
+  benefits: [
+    "🛺 Bugueiro + guia + fotógrafo",
+    "🌊 Praias paradisíacas",
+    "📸 Fotos durante o passeio",
+    "✨ Segurança, profissionalismo e muita diversão!",
+  ],
+  stops: [
+    "Burgalhau",
+    "Barra Grande — Caminho de Moisés",
+    "Xaréu — Praia da Bruna",
+    "Antunes",
+    "Ponta de Mangue",
+  ],
+  note: "O acesso ao Caminho de Moisés depende das condições da maré.",
+};
+
+const southDetails: TourDetails = {
+  intro:
+    "Venha conhecer as paisagens incríveis, praias paradisíacas e cenários naturais do Litoral Sul.",
+  subtitle:
+    "Um passeio cheio de aventura, tranquilidade e lugares perfeitos para fotos!",
+  duration: "3 HORAS",
+  capacity: "ATÉ 4 PESSOAS POR BUGGY",
+  benefits: [
+    "🛺 Bugueiro + guia + fotógrafo",
+    "🌊 Praias paradisíacas",
+    "📸 Fotos durante o passeio",
+    "✨ Segurança, profissionalismo e muita diversão!",
+  ],
+  stops: [
+    "Praia de Bitingui",
+    "Praia de Boqueirão",
+    "Ruínas de São Bento",
+    "Praia de São Bento",
+    "Praia do Salgado",
+    "Praia de Japaratinga",
+  ],
+};
+
+const pontaDetails: TourDetails = {
+  intro:
+    "Passeio de buggy Ponta a Ponta — Maragogi.",
+  subtitle:
+    "Percorra o Litoral Norte e o Litoral Sul em uma experiência completa, com praias paradisíacas, paisagens incríveis e muitos lugares perfeitos para fotos.",
+  duration: "4 HORAS",
+  capacity: "ATÉ 4 PESSOAS POR BUGGY",
+  benefits: [
+    "🛺 Buggy",
+    "🌊 Litoral Norte + Litoral Sul",
+    "📸 Fotos durante o passeio",
+    "✨ Segurança, profissionalismo e diversão",
+  ],
+  stops: [
+    "Praia de São Bento",
+    "Ruínas de São Bento",
+    "Orla de Maragogi",
+    "Burgalhau — parada para foto",
+    "Barra Grande — Caminho de Moisés",
+    "Antunes — o Caribe brasileiro",
+    "Xaréu — Praia da Bruna",
+    "Ponta de Mangue",
+    "Praia do Dourado",
+  ],
+};
+
+function TourInfoPanel({ details }: { details: TourDetails }) {
+  return (
+    <div className="tour-info-panel">
+      <div className="tour-info-copy">
+        <h3>{details.intro}</h3>
+        <p>{details.subtitle}</p>
+
+        <div className="tour-benefits">
+          {details.benefits.map((benefit) => (
+            <span key={benefit}>{benefit}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="tour-info-details">
+        <div className="tour-meta-cards">
+          <span>
+            <strong>{details.duration}</strong>
+            <small>de passeio</small>
+          </span>
+          <span>
+            <strong>{details.capacity}</strong>
+          </span>
+        </div>
+
+        <p className="tour-stops-label">Paradas do passeio</p>
+
+        <div className="tour-stops-grid">
+          {details.stops.map((stop, stopIndex) => (
+            <div className="tour-stop" key={stop}>
+              <b>{String(stopIndex + 1).padStart(2, "0")}</b>
+              <span>{stop}</span>
+            </div>
+          ))}
+        </div>
+
+        {details.note && <small className="tour-note">{details.note}</small>}
+      </div>
+    </div>
+  );
+}
+
+
 function GallerySection({
   id,
   index,
   title,
   description,
+  details,
   images,
   onOpen,
   tone,
@@ -171,6 +297,7 @@ function GallerySection({
   index: string;
   title: string;
   description: string;
+  details?: TourDetails;
   images: GalleryImage[];
   onOpen: (src: string) => void;
   tone: "light" | "sand";
@@ -188,6 +315,8 @@ function GallerySection({
         <p style={{ whiteSpace: "pre-line" }}>{description}</p>
         
       </header>
+
+      {details && <TourInfoPanel details={details} />}
 
       <div className="gallery-grid">
         {images.map((image, imageIndex) => (
@@ -423,22 +552,8 @@ export default function Home() {
         id="norte"
         index="01"
         title="Litoral Norte"
-        description={`No passeio de buggy pelo Litoral Norte de Maragogi, o roteiro pode incluir as principais praias do litoral norte, com paradas para banho e fotos:
-
-🛺 Bugueiro + guia + fotógrafo
-🌊 Praias paradisíacas
-📸 Fotos durante o passeio
-✨ Segurança, profissionalismo e muita diversão!
-
-Duração do passeio: 2h30
-
-Buggy com capacidade para até 4 pessoas
-
-🏖️ Burgalhau
-🌴 Barra Grande — onde fica o famoso Caminho de Moisés, dependendo da maré
-💙 Xaréu (Praia da Bruna)
-📸 Antunes
-🏝️ Ponta de Mangue`}
+        description="Praias famosas, mar azul e paradas para banho e fotos em alguns dos cenários mais desejados de Maragogi."
+        details={northDetails}
         images={northImages}
         onOpen={openImage}
         tone="light"
@@ -448,25 +563,8 @@ Buggy com capacidade para até 4 pessoas
         id="sul"
         index="02"
         title="Litoral Sul"
-        description={`Venha conhecer as paisagens incríveis, praias paradisíacas e cenários naturais do Litoral Sul. 💙☀️
-
-Um passeio cheio de aventura, tranquilidade e lugares perfeitos para fotos! 📸✨
-
-🛺 Bugueiro + guia + fotógrafo
-🌊 Praias paradisíacas
-📸 Fotos durante o passeio
-✨ Segurança, profissionalismo e muita diversão!
-
-Duração do passeio: 3 horas
-
-Buggy com capacidade para até 4 pessoas
-
-🏖️ Praia de Bitingui
-🌴 Praia de Boqueirão
-💙 Ruínas de São Bento
-📸 Praia de São Bento
-🏝️ Praia do Salgado
-🌅 Praia de Japaratinga`}
+        description="Praias paradisíacas, história e um roteiro completo pelo Litoral Sul para curtir, fotografar e aproveitar cada parada."
+        details={southDetails}
         images={southImages}
         onOpen={openImage}
         tone="sand"
@@ -484,6 +582,8 @@ Buggy com capacidade para até 4 pessoas
             em uma experiência completa por Maragogi.
           </p>
         </header>
+
+        <TourInfoPanel details={pontaDetails} />
 
         <div className="ponta-showcase">
           <div className="ponta-video">
@@ -506,35 +606,13 @@ Buggy com capacidade para até 4 pessoas
           <div className="ponta-copy">
             <p className="ponta-eyebrow">Norte + Sul em uma experiência</p>
             <h3>Maragogi de uma ponta à outra.</h3>
-            <p style={{ whiteSpace: "pre-line" }}>
-              {`🛺🌴 PASSEIO DE BUGGY PONTA A PONTA – MARAGOGI 🌊
-
-🏝️ Praia de São Bento
-⛪️ Ruínas de São Bento
-🌊 Passagem pela orla de Maragogi
-🏝️ Praia de Burgalhau — parada para foto
-🏝️ Barra Grande — onde fica o famoso Caminho de Moisés
-🏝️ Praia de Antunes — o Caribe brasileiro
-🏝️ Praia do Xaréu — conhecida como Praia da Bruna
-🏝️ Ponta de Mangue
-🏝️ Praia do Dourado
-
-Duração do passeio: 4 horas
-
-O buggy pode levar até 4 pessoas.
-
-No passeio Ponta a Ponta, percorremos o Litoral Norte e o Litoral Sul, conhecendo praias paradisíacas, paisagens incríveis e vários lugares perfeitos para fotos. 📸🏝️
-
-🛺 Buggy
-🌊 Litoral Norte + Litoral Sul
-📸 Fotos durante o passeio
-✨ Segurança, profissionalismo e diversão
-
-Você curte o passeio, e nós registramos cada momento para você levar as melhores lembranças de Maragogi! ❤️`}
+            <p>
+              Você curte o passeio, e nós registramos cada momento para você levar
+              as melhores lembranças de Maragogi! ❤️
             </p>
             <div className="ponta-highlights">
-              <span><strong>4 horas</strong>Um roteiro completo por Maragogi</span>
-              <span><strong>Até 4 pessoas</strong>Buggy, guia e fotos durante o passeio</span>
+              <span><strong>Norte + Sul</strong>Uma experiência completa por Maragogi</span>
+              <span><strong>Fotos durante o passeio</strong>Paradas pensadas para curtir e registrar</span>
             </div>
             <a
               className="button button-orange"
