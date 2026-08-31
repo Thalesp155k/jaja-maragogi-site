@@ -185,7 +185,8 @@ function GallerySection({
           <p className="kicker">Rota de buggy</p>
           <h2>{title}</h2>
         </div>
-        <p>{description}</p>
+        <p style={{ whiteSpace: "pre-line" }}>{description}</p>
+        
       </header>
 
       <div className="gallery-grid">
@@ -419,14 +420,29 @@ export default function Home() {
       </section>
 
       <GallerySection
-        id="norte"
-        index="01"
-        title="Litoral Norte"
-        description="Praias abertas, mar azul e paradas que combinam aventura com fotografias inesquecíveis."
-        images={northImages}
-        onOpen={openImage}
-        tone="light"
-      />
+  id="norte"
+  index="01"
+  title="Litoral Norte"
+  description={`No passeio de buggy pelo Litoral Norte de Maragogi, o roteiro pode incluir as principais praias do litoral norte, com paradas para banho e fotos:
+
+🛺 Bugueiro + guia + fotógrafo
+🌊 Praias paradisíacas
+📸 Fotos durante o passeio
+✨ Segurança, profissionalismo e muita diversão!
+
+Duração de passeio 2:30
+
+Buggy tem capacidade pra 4 pessoas
+
+🏖️ Burgalhau
+🌴 Barra Grande — onde fica o famoso Caminho de Moisés, dependendo da maré
+💙 Xaréu (Praia da Bruna)
+📸 Antunes
+🏝️ Ponta de Mangue`}
+  images={northImages}
+  onOpen={openImage}
+  tone="light"
+/>
 
       <GallerySection
         id="sul"
