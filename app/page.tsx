@@ -20,7 +20,23 @@ const tours = [
   {
     tag: "Rota de buggy",
     title: "Buggy — Litoral Norte",
-    text: "Viva o litoral Norte de Maragogi em uma rota de buggy cercada por praias e cenários inesquecíveis.",
+    text: `No passeio de buggy pelo Litoral Norte de Maragogi, o roteiro pode incluir as principais praias do litoral norte, com paradas para banho e fotos:
+
+🛺 Bugueiro + guia + fotógrafo
+🌊 Praias paradisíacas
+📸 Fotos durante o passeio
+✨ Segurança, profissionalismo e muita diversão!
+
+Duração de passeio 2:30
+
+Buggy tem capacidade pra 4 pessoas
+
+🏖️ Burgalhau
+🌴 Barra Grande — onde fica o famoso Caminho de Moisés, dependendo da maré
+💙 Xaréu (Praia da Bruna)
+📸 Antunes
+🏝️ Ponta de Mangue
+🌅`,
     meta: "Rota, disponibilidade e valor sob consulta",
     image: "https://tourmaragogi.com.br/wp-content/uploads/2022/04/passeio-quadriciclo-maragogi-alagoas-11.jpeg",
   },
@@ -102,7 +118,7 @@ export default function Home() {
               <div className="tour-shade" />
               <div className="tour-top"><span>{tour.tag}</span><b>0{index + 1}</b></div>
               <div className="tour-info">
-                <h3>{tour.title}</h3><p>{tour.text}</p><small>{tour.meta}</small>
+                <h3>{tour.title}</h3><p style={{ whiteSpace: "pre-line" }}>{tour.text}</p><small>{tour.meta}</small>
                 <a href={whatsapp(`Olá, Jajá! Tenho interesse em ${tour.title}. Pode confirmar o roteiro, a disponibilidade e o valor?`)} target="_blank" rel="noreferrer" aria-label={`Consultar ${tour.title}`}>Consultar passeio <span>↗</span></a>
               </div>
             </article>
