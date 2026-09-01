@@ -470,16 +470,13 @@ export default function Home() {
     src="/media/foto-principal-hero.png"
     alt="Buggy vermelho em Maragogi"
   />
-          <div className="hero-media-shade" />
-          <p className="hero-location">08°59&apos;S • 35°13&apos;W</p>
-          <div className="hero-seal">
-            <span>Viva</span>
-            <strong>o melhor de<br />Maragogi</strong>
-          </div>
-        </div>
-      </section>
+  <div className="hero-media-shade" />
+  <p className="hero-location">08°59&apos;S • 35°13&apos;W</p>
+</div>
 
-      <section className="experience-strip" aria-label="Sobre a experiência">
+</section>
+
+<section className="experience-strip" aria-label="Sobre a experiência">
         <p><strong>01</strong> Litoral Norte</p>
         <p><strong>02</strong> Litoral Sul</p>
         <p><strong>03</strong> Ponta a Ponta</p>
