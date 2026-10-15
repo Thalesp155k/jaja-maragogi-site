@@ -18,6 +18,25 @@
       gtag('js', new Date());
       gtag('config', 'AW-18430222845');
     </script>
+    <!-- Contato: conversao ao clicar nos links do WhatsApp -->
+    <script>
+      function gtag_report_conversion() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18430222845/1jfdCOGnqu4cEP3Dm9RE',
+          'value': 1.0,
+          'currency': 'BRL'
+        });
+        return false;
+      }
+      document.addEventListener('click', function (event) {
+        var link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+        if (!link) return;
+        var destination = new URL(link.href, window.location.href);
+        if (destination.hostname === 'wa.me' || destination.hostname === 'api.whatsapp.com') {
+          gtag_report_conversion();
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
